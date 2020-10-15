@@ -62,6 +62,11 @@ app.get('/about.html', function (req, res) {
     res.render('about');
 });
 
+// create signup page route
+app.get('/signup.html', function (req, res) {
+    res.render('signup');
+});
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
