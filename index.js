@@ -5,12 +5,27 @@ const exphbs  = require('express-handlebars');
 const path = require('path');
 const request = require('request')
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const controller = require('./controllers/user.controller');
 
 const PORT = process.env.PORT || 5000;
 
+// data base info
+
+const db = 'mongodb:localhost:userExample';
+
+mongoose.connect(db);
+
+app.use(express.static(path.join(__dirname, 'views')));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+extended:true
+}));
+
 
 // use body parser middleware
-app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.urlencoded({useNewUrlParser: true} to MongoClient.connect.));
 
 
 // API key pk_14ed8241ef3a4c45b50938dc759d1375
