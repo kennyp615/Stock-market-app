@@ -5,10 +5,11 @@ const exphbs  = require('express-handlebars');
 const path = require('path');
 const request = require('request');
 const bodyParser = require('body-parser');
+const passport = require("passport");
 const mongoose = require('mongoose');
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // data base info
 
@@ -16,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 // use body parser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 
-mongoose.connect("mongodb:/localhost:27017/userDB", {useNewUrlParser: true});
++mongoose.connect("mongodb:/localhost:27017/userDB", {useNewUrlParser: true});
 
 //creating schema
 const userSchema = {
