@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 const exphbs  = require('express-handlebars');
 const path = require('path');
-const request = require('request')
+const request = require('request');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose');
+const ejs = require("ejs");
 
 const PORT = process.env.PORT || 5000;
 
@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 // use body parser middleware
 //app.use(bodyParser.urlencoded({useNewUrlParser: true} to MongoClient.connect.));
 
+mongoose.connect("mongodb:/localhost:27017/userDB", {useNewUrlParser: true});
 
 // API key pk_14ed8241ef3a4c45b50938dc759d1375
 // create call_api function
@@ -32,7 +33,7 @@ function call_api(finishedAPI, ticker) {
 
 // Set Handlebars Middleware
 app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+app.set('view engine', 'handlebars', 'ejs');
 
 const otherstuff = "hello there, this is other stuff!";
 
@@ -59,8 +60,6 @@ app.post('/', function (req, res) {
 });
 
 
-
-
 // create about page route
 app.get('/about.html', function (req, res) {
     res.render('about');
@@ -70,6 +69,18 @@ app.get('/about.html', function (req, res) {
 app.get('/signup.html', function (req, res) {
     res.render('signup');
 });
+app.get('/start.ejs', function (req, res) {
+    res.render('start');
+});
+
+app.get('/login.ejs', function (req, res) {
+    res.render('login');
+});
+
+app.get('/register.ejs', function (req, res) {
+    res.render('register');
+});
+
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));

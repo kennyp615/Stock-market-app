@@ -1,7 +1,6 @@
 {
-  "name": "Stock-market-app",
+  "name": "stock-market-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,8 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootscrap": "^0.1.0",
+    "create-react-app": "^3.4.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
+    "firebase": "^7.24.0",
     "mongoose": "^5.10.9",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
@@ -21,5 +24,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennyp615/Stock-market-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kennyp615/Stock-market-app/issues"
+  },
+  "homepage": "https://github.com/kennyp615/Stock-market-app#readme",
+  "description": ""
 }
