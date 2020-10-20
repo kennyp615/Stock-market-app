@@ -6,7 +6,7 @@ const path = require('path');
 const request = require('request');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const ejs = require("ejs");
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,7 +33,7 @@ function call_api(finishedAPI, ticker) {
 
 // Set Handlebars Middleware
 app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars', 'ejs');
+app.set('view engine', 'handlebars');
 
 const otherstuff = "hello there, this is other stuff!";
 
@@ -69,21 +69,21 @@ app.get('/about.html', function (req, res) {
 app.get('/signup.html', function (req, res) {
     res.render('signup');
 });
-app.get('/start.ejs', function (req, res) {
+app.get('/start', function (req, res) {
     res.render('start');
 });
 
-app.get('/login.ejs', function (req, res) {
+app.get('/login', function (req, res) {
     res.render('login');
 });
 
-app.get('/register.ejs', function (req, res) {
+app.get('/register', function (req, res) {
     res.render('register');
 });
 
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 
 app.listen(PORT, () => console.log('Server Listening on port ' + PORT));
